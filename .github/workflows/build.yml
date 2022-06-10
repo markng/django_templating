@@ -1,0 +1,19 @@
+name: Django Templating Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repo"
+        uses: actions/checkout@v2
+
+      - name: "Build"
+        run:  make build
+
+      - name: "Publish"
+        uses: actions/upload-artifact@v3
+        with:
+          name: deploy-template
+          path: out/project_template.zip
