@@ -13,5 +13,5 @@ out/project_template.zip:
 	mkdir -p build
 	cp -R project_name build/project_name
 	find build/ -type f | xargs sed -i.bak 's/project_name/\{project_name\}/g'
-	zip -r $@ build/
+	cd build && zip -r ../$@ .
 
